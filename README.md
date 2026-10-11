@@ -21,18 +21,18 @@ Categorizing images and screenshots manually in digital archives is a tedious ta
 * **Backbone:** **MobileNetV2** (Pretrained on ImageNet) using a *Feature Extraction* approach (frozen backbone, trainable classifier head).
 * **Optimization:** `Adam` optimizer (lr=0.001), `CrossEntropyLoss`.
 * **Data Splitting:** 80% Training, 20% Validation with Data Augmentation (RandomHorizontalFlip, Rotation, ColorJitter).
-* **Validation Accuracy:** ~58% (Baseline performance).
+* **Validation Accuracy:** ~57% (Baseline performance, boosting to ~66% post-mapping).
 
 ---
 
 ## Business Logic: Taxonomy Mapping
-Since raw e-commerce classes are too granular for personal gallery organization, an inference mapping layer (`TAXONOMY_MAP`) was implemented to bridge raw predictions to high-level folders:
-* *Example:* `BABY_PRODUCTS` -> `Shopping & Products`
-* *Example:* `ELECTRONICS` -> `Tech & Electronics`
+Since raw e-commerce classes are too granular for personal gallery organization, an inference mapping layer (`TAXONOMY_MAP`) was implemented to bridge raw predictions to high-level system folders:
+* *Example:* `BABY_PRODUCTS` -> `Retail & Personal Care`
+* *Example:* `ELECTRONICS` -> `Consumer Tech`
 
 ---
 
-## Repository Structure
+## 📂 Repository Structure
 ```text
 ├── v1_ecommerce_baseline.ipynb   # Complete ML pipeline (EDA -> Training -> Evaluation -> Inference)
 ├── saved_model.pth               # Serialized PyTorch model weights & class labels
